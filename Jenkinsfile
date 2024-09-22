@@ -1,6 +1,11 @@
 pipeline{
     agent any
     stages{
+        stage('Clone the repository.'){
+            steps{
+                git branch: 'master', url: 'https://github.com/chriskilelo/gallery'
+            }
+        }        
         stage("Install Dependencies"){
             steps{
                 sh "npm install"
