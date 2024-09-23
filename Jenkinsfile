@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Clone the repository.'){
             steps{
-                git clone: 'master', url: 'https://github.com/chriskilelo/gallery'
+                git branch: 'master', url: 'https://github.com/chriskilelo/gallery'
             }
         }        
         stage("Install Dependencies"){
