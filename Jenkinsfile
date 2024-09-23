@@ -25,4 +25,15 @@ pipeline{
             }
         }
     }
+    post {
+        failure {
+            emailext (
+                to: 'christopher.kilelo@student.moringaschool.com',
+                subject: "Build Failed: ${currentBuild.fullDisplayName}",
+                body: """<p>Something went wrong with the build.</p>
+                          <p>Check the logs at: <a href="${env.BUILD_URL}">Build Link</a></p>""",
+                mimeType: 'text/html'
+            )
+        }
+    }    
 }
